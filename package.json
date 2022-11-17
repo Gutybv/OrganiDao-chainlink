@@ -1,0 +1,34 @@
+{
+  "name": "hack-chain-orden",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/react": "^2.3.7",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "@rainbow-me/rainbowkit": "^0.7.4",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.3",
+    "ethers": "^5.7.2",
+    "framer-motion": "6",
+    "next": "13.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.8.4",
+    "typewriter-effect": "^2.19.0",
+    "wagmi": "^0.8.1"
+  },
+  "resolutions": {
+    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
+  }
+}
