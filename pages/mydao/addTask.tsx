@@ -60,7 +60,7 @@ export default function Task() {
     setIsLoading(true);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const contract = new ethers.Contract(
-      "0xbde975CFA1d7829d846b131495218F30Eb610720",
+      "0x3411D99A7A6ed954a4E4FC0B15D5eE6b6a2848C5",
       CONTRACT_ABI,
       provider.getSigner()
     );

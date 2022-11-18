@@ -47,7 +47,7 @@ export default function StartDao() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const contract = new ethers.Contract(
-      "0x1AED6A8276f611d50ef4b83352D4df5580e727b1",
+      "0xF22214C26d0A1DaC8f6631ce893ABf423B84D4Be",
       CONTRACT_ABI,
       provider.getSigner()
     );
