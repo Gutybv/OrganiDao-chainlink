@@ -152,7 +152,7 @@ export default function Task() {
                             </Select>
                           </Box>
 
-                          {!isLoading && !signed && (
+                          {!isLoading && !signed && !isMinted && (
                             <Box>
                               <Text pb={4} fontWeight="bold" fontSize="lg">
                                 Choose the task for your community
@@ -265,11 +265,24 @@ export default function Task() {
                             <Box>
                               <Alert status="success">
                                 <AlertIcon />
-                                <AlertTitle>Transaction confirmed</AlertTitle>
-                                <AlertDescription>
-                                  You add a new person
-                                </AlertDescription>
+                                <AlertTitle>
+                                  Transaction confirmed, you create Tasks for
+                                  your community, and mint your task.
+                                </AlertTitle>
                               </Alert>
+                              <Center mt={7}>
+                                <Button
+                                  _hover={{ cursor: "pointer" }}
+                                  onClick={() => {
+                                    window.open(
+                                      "https://testnets.opensea.io/es/account?tab=collected",
+                                      "_blank"
+                                    );
+                                  }}
+                                >
+                                  Go to OpeanSea
+                                </Button>
+                              </Center>
                             </Box>
                           )}
                         </ModalBody>
@@ -290,10 +303,10 @@ export default function Task() {
               >
                 <Center>
                   <Box>
-                    <Text fontSize="100" pt={10} pb={5}>
+                    <Text fontSize="100" pt={10} pb={5} ml={3}>
                       <FiEdit />
                     </Text>
-                    <Text fontSize="lg">Edit Tasks</Text>
+                    <Text fontSize="lg">Mint my Tasks</Text>
                     <Modal isOpen={isOpen2} onClose={onClose2}>
                       <ModalOverlay />
                       <ModalContent>
@@ -307,11 +320,11 @@ export default function Task() {
                         </Center>
                         <ModalCloseButton />
                         <ModalBody>
-                          <Text fontSize="md" fontWeight="600" align="center">
+                          {!isLoading && !signed && !isMinted && (
+                            <Box>
+                          <Text fontSize="lg" fontWeight="600" align="center">
                             Let's see my task!
                           </Text>
-                          {!isLoading && !signed && (
-                            <Box>
                               <Center py={10}>
                                 <Box>
                                   <Button
@@ -363,6 +376,7 @@ export default function Task() {
                                   textAlign="center"
                                   pb={6}
                                   pt={10}
+
                                 >
                                   Waiting for the magic
                                 </Text>{" "}
@@ -382,12 +396,21 @@ export default function Task() {
                             <Text>Transaction confirmed</Text>
                           )}
                           {isMinted && !isLoading && !signed && (
-                            <Box>
-                              <NextLink href="https://testnets.opensea.io/es/account?tab=collected"  >
-                                <Button _hover={{ cursor: "pointer" }}>
-                                  Close
+                            <Box mb={14}>
+                              <Text fontSize="lg" fontWeight="600" align="center">Task asigned 😉</Text>
+                              <Center mt={7} >
+                                <Button
+                                  _hover={{ cursor: "pointer" }}
+                                  onClick={() => {
+                                    window.open(
+                                      "https://testnets.opensea.io/es/account?tab=collected",
+                                      "_blank"
+                                    );
+                                  }}
+                                >
+                                  Go to OpeanSea
                                 </Button>
-                              </NextLink>
+                              </Center>
                             </Box>
                           )}
                         </ModalBody>

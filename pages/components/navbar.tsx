@@ -8,6 +8,7 @@ import {
   Stack,
   useColorMode,
   Center,
+  Image,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
@@ -37,7 +38,7 @@ export default function Nav() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={10}  >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Logo</Box>
+        <Image boxSize="40px" src="/image/logolanco.png"  />
           <Flex fontWeight="600"  > 
                 <Link mx={2} >Home</Link>
                 <Link mx={2} px={10}>Create my community/DAO</Link>

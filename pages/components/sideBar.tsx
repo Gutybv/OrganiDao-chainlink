@@ -22,7 +22,8 @@ import {
   MenuList,
   Stack,
   Button,
-  useColorMode
+  useColorMode,
+  Image,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
@@ -39,8 +40,7 @@ import {
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Link from 'next/link'
-
+import Link from "next/link";
 
 interface LinkItemProps {
   name: string;
@@ -52,7 +52,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "Task", icon: FiTrendingUp, href: "/mydao/addTask" },
   { name: "Add people", icon: FiCompass, href: "/mydao/addPeople" },
   { name: "Proposal (Soon)", icon: FiSettings, href: "/mydao/proposal" },
-  { name: "Vote (Soon)" , icon: FiStar, href: "/mydao/vote" },
+  { name: "Vote (Soon)", icon: FiStar, href: "/mydao/vote" },
 ];
 
 export default function SidebarWithHeader({
@@ -107,16 +107,16 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <Image boxSize="70px" src="/image/logolanco.png" mt={10}   ml={8}  />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
+      <Box pt={10}>
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon}>
-            {link.name} 
+          {link.name}
         </NavItem>
       ))}
+      </Box>
     </Box>
   );
 };

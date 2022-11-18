@@ -19,6 +19,11 @@ import {
   Select,
   Grid,
   SimpleGrid,
+  Spinner,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import Nav from "./components/navbar";
@@ -26,6 +31,10 @@ import CONTRACT_ABI from "./abi/contract-abi.json";
 import React from "react";
 
 export default function StartDao() {
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [signed, setSigned] = React.useState(false);
+  const [isMinted, setIsMinted] = React.useState(false);
+  const [error, setError] = React.useState(false);
   const [link, setLink] = React.useState("");
 
   const chainLink = (event: any) => {
@@ -33,6 +42,7 @@ export default function StartDao() {
   };
 
   const createMintNft = async () => {
+    setIsLoading(true);
     console.log("createMintNft");
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -48,11 +58,18 @@ export default function StartDao() {
         provider.getSigner().getAddress(),
         'https://ipfs.filebase.io/ipfs/QmdDBBsNn3wMWG5uGkj3MypXaQSTFKuANoVxPvWX2wEQsG/QmWuneCtxnC3PxP2rjVdj2YuBLLDLqNYJhF5NHhtNGr1N3'
       );
+      setSigned(true);
       console.log("Mint NFT", mintNft);
       const transactionMintNft = await mintNft.wait();
       console.log("Transaction Mint NFT", transactionMintNft);
+      setIsLoading(false);
+      setSigned(false);
+      setIsMinted(true);
     } catch (error) {
       console.log(error);
+      setError(true);
+      setIsLoading(false);
+      setSigned(false);
     }
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -80,12 +97,14 @@ export default function StartDao() {
         </Center>
         <Center>
           <Stack spacing={4} direction="row">
-            <Box borderRadius="lg" h={300} w={280} backgroundColor="#2A334A">
+            <Box borderRadius="lg" h={300} w={280} backgroundColor="#2A334A" _hover={{ cursor: "pointer" }} onClick={() => {
+              window.open("./mydao/dashboard", "_self");
+            }}>
               <Center>
                 <Box>
                   <Image
                     boxSize="140px"
-                    src="/image/CreateDAO.png"
+                    src="/image/FindDao.png"
                     my={5}
                     ml={3}
                   />
@@ -108,12 +127,13 @@ export default function StartDao() {
               w={280}
               backgroundColor="#2A334A"
               onClick={onOpen}
+              _hover={{ cursor: "pointer" }}
             >
               <Center>
                 <Box>
                   <Image
                     boxSize="140px"
-                    src="/image/FindDao.png"
+                    src="/image/CreateDAO.png"
                     my={5}
                     ml={3}
                   />
@@ -137,6 +157,7 @@ export default function StartDao() {
                     </Text>
                   </Center>
                   <ModalCloseButton />
+                  {!isLoading && !signed && !isMinted && (
                   <ModalBody>
                     <SimpleGrid columns={2} spacing={6}>
                       <Box>
@@ -190,14 +211,86 @@ export default function StartDao() {
                       </Box>
                       
                     </SimpleGrid>
-                    
-                  </ModalBody>
-
-                  <ModalFooter pt={10}>
+                    <Box pt={10}>
+                      <Center>
                     <Button colorScheme="blue" mr={3} onClick={createMintNft}>
                       Mint nft
                     </Button>
-                    <Button>How to create a link IPFS</Button>
+                    <Button>How to create a link IPFS</Button>  
+                    </Center>
+                    </Box>
+                  </ModalBody>
+                  
+                    )}
+                    {isLoading && !signed && (
+                            <Center>
+                              <Box>
+                                <Text
+                                  fontWeight={700}
+                                  textAlign="center"
+                                  pb={6}
+                                  pt={10}
+                                >
+                                  Waiting your sign
+                                </Text>
+                                <Spinner
+                                  thickness="4px"
+                                  speed="0.65s"
+                                  emptyColor="gray.200"
+                                  color="blue.500"
+                                  size="lg"
+                                  ml={12}
+                                  mb={10}
+                                />
+                              </Box>
+                            </Center>
+                          )}
+                          {signed && isLoading && (
+                            <Center>
+                              <Box>
+                                <Text
+                                  fontWeight={700}
+                                  textAlign="center"
+                                  pb={6}
+                                  pt={10}
+                                >
+                                  Waiting for the magic
+                                </Text>{" "}
+                                <Spinner
+                                  thickness="4px"
+                                  speed="0.65s"
+                                  emptyColor="gray.200"
+                                  color="blue.500"
+                                  size="lg"
+                                  ml={12}
+                                  mb={10}
+                                />
+                              </Box>
+                            </Center>
+                          )}
+                          {signed && !isLoading && (
+                            <Text>Transaction confirmed</Text>
+                          )}
+                          {isMinted && !signed && !isLoading && (
+                              <Center>
+                            <Box mt={5}>
+                              <Alert status="success">
+                                <AlertIcon />
+                                <AlertTitle>You create a new Guild</AlertTitle>
+                                
+                              </Alert>
+                              <Button mt={5} ml={8} onClick={() => {
+              window.open("./mydao/dashboard", "_self");
+            }}>
+                                Go to your Guild
+                              </Button>
+                            </Box>
+                              </Center>
+                          )}
+
+                  <ModalFooter pt={10}>
+                    
+                    
                   </ModalFooter>
                 </ModalContent>
               </Modal>

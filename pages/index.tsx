@@ -52,12 +52,12 @@ export default function Home() {
         Start your DAO/Guild very easy with us, just upload your IPFS and we do the work. We create the NFT for you to access the DAO and we start creating automated tasks every month so that together we can make the community grow.        </Text>
         <Stack spacing={4} direction="row">
           <Button bgGradient='linear(to-br, #FF2CDF, #0014FF)' color='white'  variant="solid" size="lg" mr={2} onClick={() => {
-              window.open("https://github.com/personaltokenprotocol", "_blank");
+              window.open("./startdao", "_self");
             }}>
             Create Community
           </Button>
           <Button bgGradient='linear(to-br, #FF2CDF, #0014FF)' color='white' variant="solid" size="lg" mr={2} onClick={() => {
-              window.open("https://calendly.com/benjamingutierrez/15min", "_blank");
+              window.open("./mydao/addTask", "_self");
             }} >
             Create Task
           </Button>
