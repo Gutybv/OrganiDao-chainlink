@@ -32,7 +32,7 @@ export default function Home() {
       >
         <Heading as="h1" size="2xl" fontWeight="700"   bgClip='text' bgGradient='linear(to-l, #FF2CDF, #0014FF)'>
           <Text pb={2} color={color}>
-            Let's start organizing your
+            Let s start organizing your
           </Text>
           <Typewriter
             onInit={(typewriter) => {

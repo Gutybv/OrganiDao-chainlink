@@ -161,7 +161,7 @@ export default function StartDao() {
                   <ModalBody>
                     <SimpleGrid columns={2} spacing={6}>
                       <Box>
-                      <Text pb={2}>Let's get started</Text>
+                      <Text pb={2}>Let s get started</Text>
                       <Select placeholder="What are you building?">
                         <option value="option1">Guild</option>
                         <option value="option2">Community</option>

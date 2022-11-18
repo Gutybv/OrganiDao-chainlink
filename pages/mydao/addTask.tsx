@@ -104,7 +104,7 @@ export default function Task() {
               textAlign="center"
               fontWeight="700"
             >
-              Let's create tasks for your community{" "}
+              Let s create tasks for your community{" "}
             </Text>
             <Text fontSize="md" mx={60} align="center" pt={4}>
               Depending on what you want your DAO people to do, a monthly
@@ -323,7 +323,7 @@ export default function Task() {
                           {!isLoading && !signed && !isMinted && (
                             <Box>
                           <Text fontSize="lg" fontWeight="600" align="center">
-                            Let's see my task!
+                            Let s see my task!
                           </Text>
                               <Center py={10}>
                                 <Box>
