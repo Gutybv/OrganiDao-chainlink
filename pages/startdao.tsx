@@ -37,7 +37,7 @@ export default function StartDao() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const contract = new ethers.Contract(
-      "0xc6E0701F7237CEc0207c0768170E353EEAd8e9b4",
+      "0x1AED6A8276f611d50ef4b83352D4df5580e727b1",
       CONTRACT_ABI,
       provider.getSigner()
     );
@@ -46,7 +46,7 @@ export default function StartDao() {
     try {
       const mintNft = await contract.safeMint(
         provider.getSigner().getAddress(),
-        link
+        'https://ipfs.filebase.io/ipfs/QmdDBBsNn3wMWG5uGkj3MypXaQSTFKuANoVxPvWX2wEQsG/QmWuneCtxnC3PxP2rjVdj2YuBLLDLqNYJhF5NHhtNGr1N3'
       );
       console.log("Mint NFT", mintNft);
       const transactionMintNft = await mintNft.wait();
@@ -64,7 +64,7 @@ export default function StartDao() {
         <Center>
           <Box pt={20} pb={10}>
             <Text fontSize="5xl" fontWeight="900" color="white" align="center">
-              Welcome to Inti
+              Welcome to OrganiDAO
             </Text>
             <Text
               fontSize="xl"
