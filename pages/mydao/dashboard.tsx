@@ -37,22 +37,27 @@ export default function Dashboard() {
             <SimpleGrid columns={3} spacing={20} pt={10}>
                 <Box height='130px'  bg='#2A334A'>
                     <Text align="center" fontSize='xl' pt={8} fontWeight="bold">Nº members</Text>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold"> {balance}  </Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold"> 1  </Text>
                 </Box>
-                <Box height='80px' bg='#2A334A'>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">Nº Task</Text>
+                <Box height='130px' bg='#2A334A'>
+                    <Text align="center" fontSize='xl' pt={8} fontWeight="bold">Nº Task</Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">0</Text>
                 </Box>
-                <Box height='80px' bg='#2A334A'>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">Nº Task Completed</Text>
+                <Box height='130px' bg='#2A334A'>
+                    <Text align="center" fontSize='xl' pt={8} fontWeight="bold">Nº Task Completed</Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">0</Text>
                 </Box>
-                <Box height='80px' bg='#2A334A'>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold"> % Task Complete</Text>
+                <Box height='130px' bg='#2A334A'>
+                    <Text align="center" fontSize='xl' pt={8} fontWeight="bold"> % Task Complete</Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold"> 0%</Text>
                 </Box>
-                <Box height='80px' bg='#2A334A'>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">Nº of my tasks</Text>
+                <Box height='130px' bg='#2A334A'>
+                    <Text align="center" fontSize='xl' pt={8} fontWeight="bold">Nº of my tasks</Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">0</Text>
                 </Box>
-                <Box height='80px' bg='#2A334A'>
-                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">% of my task completed</Text>
+                <Box height='130px' bg='#2A334A'>
+                    <Text align="center" fontSize='xl' pt={8} fontWeight="bold">% of my task completed</Text>
+                    <Text align="center" fontSize='xl' pt={2} fontWeight="bold">0%</Text>
                 </Box>        
             </SimpleGrid>
             
